@@ -1,0 +1,22 @@
+{
+  "name": "web-bootcamp",
+  "version": "1.0.0",
+  "description": "Hello World Project",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalphant0m/web-bootcamp.git"
+  },
+  "author": "digitalphant0m",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalphant0m/web-bootcamp/issues"
+  },
+  "homepage": "https://github.com/digitalphant0m/web-bootcamp#readme",
+  "dependencies": {
+    "marvel-api": "^1.1.0"
+  }
+}
