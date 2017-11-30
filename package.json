@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/digitalphant0m/web-bootcamp#readme",
   "dependencies": {
+    "comander": "0.0.1-security",
     "marvel-api": "^1.1.0"
   }
 }
