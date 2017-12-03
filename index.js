@@ -1,24 +1,12 @@
-let program = require('commander')
-let Marvel = require('./marvel') 
+let express = require('express')
+let app = express()
 
-program
-    .command('fetch')
-    .action(() => {
-        console.log('Characters')
-        let marvel = new Marvel()
-        marvel.getCharacters()
-    })
+app.use('/', express.static('app'))
 
-program
-    .command('thor')
-    .action(() => {
-        console.log('Thor')
-        let marvel = new Marvel()
-        marvel.getThor()
-    })
+app.set('port', process.env.PORT || process.env.VCAP_APP_PORT || 3000)
 
-program.parse(process.argv)
+// Start server
+let server = app.listen(app.get('port'), function() {
+  console.log(`Express is running on port ${app.get('port')}`)
+})
 
-if(!program.args.length) {
-    program.help()
-}
