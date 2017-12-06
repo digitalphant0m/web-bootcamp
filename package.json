@@ -21,6 +21,7 @@
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "moment": "^2.19.3",
+    "swapi-node": "^0.4.3",
     "webpack": "^3.9.1",
     "webpack-copy-plugin": "0.0.4",
     "webpack-dev-server": "^2.9.5"
