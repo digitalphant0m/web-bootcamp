@@ -177,6 +177,10 @@ class Card {
         cardTitle.style.width = '100%'
 
         cardHeader.append(cardTitle)
+   
+        card.append(cardHeader)
+        
+        return card
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Card;

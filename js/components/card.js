@@ -31,5 +31,9 @@ export default class Card {
         cardTitle.style.width = '100%'
 
         cardHeader.append(cardTitle)
+   
+        card.append(cardHeader)
+        
+        return card
     }
 }
