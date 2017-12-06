@@ -74,7 +74,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 class App {
   constructor() {
-    document.body.style.background = 'url("/images/background.png") no-repeat center center fixed'
+    document.body.style.background = 'url("/images/sw_background.png") no-repeat center center fixed'
     document.body.style.backgroundSize = 'cover'
     document.body.style.height = '100%'
     document.body.style.margin = '0'
@@ -95,20 +95,18 @@ let app = new App()
 window.app = app
 
 
+
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(2);
-
-
 class Dashboard {
     constructor() {
     }
 
     getContent() {
-    
+
     let container = document.createElement('div')
     container.id = 'container'
 
@@ -119,71 +117,11 @@ class Dashboard {
 
     container.appendChild(title)
 
-    let thorCard = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
-        title: 'Thor'
-    })
-    
-    container.append(thorCard.getContent())
-    
-    let hulkCard = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
-        title: 'Hulk'
-    })
-
-    container.append(hulkCard.getContent())
-    
     return container
-    
+
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Dashboard;
-
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Card {
-    constructor(options) {
-    this.options = options
-    }
-
-    getContent() {
-        let card = document.createElement('div')
-
-        card.classList.add('col-6')
-        card.style.height = '400px'
-        card.style.margin = '1%'
-        card.style.cursor = 'pointer'
-        card.style.boxShadow = '0px 0px 3px #888888'
-        card.style.borderWidth = '2px'
-        card.style.borderStyle = 'none'
-        card.style.borderColor = 'gold'
-        card.style.background = 'rgba(0, 0, 0, 0.4)'
-        card.style.borderRadius = '25px'
-
-        let cardHeader = document.createElement('div')
-        cardHeader.style.height = '10%'
-
-        let cardTitle = document.createElement('div')
-        cardTitle.append(this.options.title)
-        
-        cardTitle.style.color = '#dddddd'
-        cardTitle.style.margin = 'auto'
-        cardTitle.style.textAlign = 'center'
-        cardTitle.style.fontWeight = 'bold'
-        cardTitle.style.fontSize = '24px'
-        cardTitle.style.width = '100%'
-
-        cardHeader.append(cardTitle)
-   
-        card.append(cardHeader)
-        
-        return card
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Card;
 
 
 

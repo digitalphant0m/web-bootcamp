@@ -2,7 +2,7 @@ import Dashboard from './containers/dashboard'
 
 export default class App {
   constructor() {
-    document.body.style.background = 'url("/images/background.png") no-repeat center center fixed'
+    document.body.style.background = 'url("/images/sw_background.png") no-repeat center center fixed'
     document.body.style.backgroundSize = 'cover'
     document.body.style.height = '100%'
     document.body.style.margin = '0'
@@ -19,3 +19,4 @@ export default class App {
 
 let app = new App()
 window.app = app
+

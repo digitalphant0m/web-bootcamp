@@ -1,11 +1,9 @@
-import Card from '../components/card'
-
 export default class Dashboard {
     constructor() {
     }
 
     getContent() {
-    
+
     let container = document.createElement('div')
     container.id = 'container'
 
@@ -16,19 +14,7 @@ export default class Dashboard {
 
     container.appendChild(title)
 
-    let thorCard = new Card({
-        title: 'Thor'
-    })
-    
-    container.append(thorCard.getContent())
-    
-    let hulkCard = new Card({
-        title: 'Hulk'
-    })
-
-    container.append(hulkCard.getContent())
-    
     return container
-    
+
     }
 }
