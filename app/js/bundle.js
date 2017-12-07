@@ -82,7 +82,7 @@ class App {
     document.body.style.backgroundAttachment = 'fixed'
 
     let content = document.getElementById('content')
-    
+
     let dashboard = new __WEBPACK_IMPORTED_MODULE_0__containers_dashboard__["a" /* default */]()
     content.append(dashboard.getContent())
 
@@ -95,7 +95,6 @@ let app = new App()
 window.app = app
 
 
-
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -106,11 +105,13 @@ window.app = app
 
 class Dashboard {
   constructor () {
+      this.getData()
   }
 
-  getData() {
-    // This is where we'll grab data from the marvel api
-  }
+   getData() {
+       // get data
+   }
+
 
   getContent() {
     let container = document.createElement('div')
@@ -129,23 +130,14 @@ class Dashboard {
 
     container.appendChild(title)
 
-    let thorCard = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
-      title: 'Thor',
-      image: '/images/thor-thumb.png',
-      description: 'As the Norse God of thunder and lightning, Thor wields one of the greatest weapons ever made, the enchanted hammer Mjolnir. While others have described Thor as an over-muscled, oafish imbecile, he\'s quite smart and compassionate.',
-      link: 'http://marvel.com/universe/Thor_(Thor_Odinson)#axzz502Le2EeS',
-      linkText: 'More Info on Thor'
+    let lukeCard = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
+      title: '',
+      image: '',
+      description: '',
+      link: '',
+      linkText: ''
     })
-    container.append(thorCard.getContent())
-
-    let hulkCard = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
-      title: 'Hulk',
-      image: '/images/hulk-thumb.png',
-      description: 'Caught in a gamma bomb explosion while trying to save the life of a teenager, Dr. Bruce Banner was transformed into the incredibly powerful creature called the Hulk.',
-      link: 'http://marvel.com/universe/Hulk_(Bruce_Banner)#axzz502Le2EeS',
-      linkText: 'More Info on Hulk'
-    })
-    container.append(hulkCard.getContent())
+    container.append(lukeCard.getContent())
 
     return container
   }

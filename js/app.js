@@ -10,7 +10,7 @@ export default class App {
     document.body.style.backgroundAttachment = 'fixed'
 
     let content = document.getElementById('content')
-    
+
     let dashboard = new Dashboard()
     content.append(dashboard.getContent())
 
@@ -19,4 +19,3 @@ export default class App {
 
 let app = new App()
 window.app = app
-

@@ -3,6 +3,7 @@ var path = require('path')
 
 module.exports = {
   entry: './js/app.js',
+  target: 'node',
   output: {
     path: __dirname,
     publicPath: '/',
@@ -19,10 +20,10 @@ module.exports = {
         }
       ]
     },
+
     plugins: [
         new CopyWebpackPlugin([
             { from: 'node_modules/lodash/lodash.min.js', to:'app/js' },
         ])
     ]
 };
-
