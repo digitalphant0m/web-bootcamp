@@ -44964,9 +44964,10 @@ let Swapi = __webpack_require__(166)
 let swapi = new Swapi()
 
 swapi.getData((arr) => {
-  swapi.insertDocuments(arr)
+//  swapi.insertDocuments(arr)
   swapi.query((params) => {
       console.log('params',params)
+
   })
 })
 
@@ -44980,7 +44981,8 @@ let MongoClient = __webpack_require__(312).MongoClient
 
 class Swapi {
     constructor(){
-        this.url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin'
+        //this.url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin'
+        this.url = 'mongodb://localhost:27017/swapi'
     }
 
     getData(callback) {
@@ -44989,37 +44991,27 @@ class Swapi {
         let array = []
         let objPeople = {}
         let objPlanets = {}
-        let homeWorld
+        //let homeWorld
+        //let filmTitle
 
         // get star wars people
         swapi.get('people', '')
             .then(people =>  {
-
             people.results.forEach((person) => {
-                // forEach film of person
-            /*    person.films.forEach((film) => {
-                    swapi.get(film).then((result) => {
-                        let _films = result.name
-                        console.log(_films)
-                     });
-                })
-                // forEach person return their homeworld
-                swapi.get(person.homeworld).then((result) => {
-                    homeWorld = result.name
-                    //console.log(homeWorld)
-                 });
-                 */
+
                 objPeople = {
                     name : person.name,
                     birth_year:  person.birth_year,
                     hair_color: person.hair_color,
-                    //home_world: homeWorld
+                    //home_world: homeWorld,
+                    //film: filmTitle
                 }
                 array.push(objPeople)
+                console.log("ARR>>",array)
             })
              callback(array)
-            // .fail(console.error)
-             //.done
+             .fail(console.error)
+             .done
         })
 
         return array
@@ -45028,9 +45020,9 @@ class Swapi {
     insertDocuments(docs) {
        MongoClient.connect(this.url, (err,db) => {
          if(!err) {
-           let collection = db.collection('mydb')
+           let collection = db.collection('characters')
            collection.insertMany(docs, (err,result) => {
-            // console.log(result)
+               console.log(result)
            })
            db.close()
          }
@@ -45045,17 +45037,33 @@ class Swapi {
         MongoClient.connect(this.url, (err, db) => {
           if (err) throw err
           var query = { name: "Obi-Wan Kenobi" };
-           let collection = db.collection('mydb')
+           let collection = db.collection('characters')
             collection.find(query).toArray((err, result) => {
-            if (err) throw err
-            params(result)
+            console.log("RES>>",result)
             db.close();
+            params(result)
+
           })
          // .fail(console.error)
           //.done
       })
      return params
      }
+
+     /*
+     // film of person
+     person.films.forEach((film) => {
+         swapi.get(film).then((result) => {
+             filmTitle = result.title
+             //console.log(filmTitle)
+          });
+     })
+     // forEach person return their homeworld
+     swapi.get(person.homeworld).then((result) => {
+         homeWorld = result.name
+         //console.log(homeWorld)
+      });
+      */
 
 
 }

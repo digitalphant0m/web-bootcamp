@@ -13,37 +13,27 @@ class Swapi {
         let array = []
         let objPeople = {}
         let objPlanets = {}
-        let homeWorld
+        //let homeWorld
+        //let filmTitle
 
         // get star wars people
         swapi.get('people', '')
             .then(people =>  {
-
             people.results.forEach((person) => {
-                // forEach film of person
-            /*    person.films.forEach((film) => {
-                    swapi.get(film).then((result) => {
-                        let _films = result.name
-                        console.log(_films)
-                     });
-                })
-                // forEach person return their homeworld
-                swapi.get(person.homeworld).then((result) => {
-                    homeWorld = result.name
-                    //console.log(homeWorld)
-                 });
-                 */
+
                 objPeople = {
                     name : person.name,
                     birth_year:  person.birth_year,
                     hair_color: person.hair_color,
-                    //home_world: homeWorld
+                    //home_world: homeWorld,
+                    //film: filmTitle
                 }
                 array.push(objPeople)
+                console.log("ARR>>",array)
             })
              callback(array)
-            // .fail(console.error)
-             //.done
+             .fail(console.error)
+             .done
         })
 
         return array
@@ -54,7 +44,7 @@ class Swapi {
          if(!err) {
            let collection = db.collection('characters')
            collection.insertMany(docs, (err,result) => {
-            // console.log(result)
+               console.log(result)
            })
            db.close()
          }
@@ -65,20 +55,37 @@ class Swapi {
        })
      }
 
-     query(callback) {
+     query(params) {
         MongoClient.connect(this.url, (err, db) => {
           if (err) throw err
+          var query = { name: "Obi-Wan Kenobi" };
            let collection = db.collection('characters')
-            collection.find({}).toArray((err, result) => {
-            if (err) throw err
-            callback(result)
+            collection.find(query).toArray((err, result) => {
+            console.log("RES>>",result)
             db.close();
+            params(result)
+
           })
          // .fail(console.error)
           //.done
       })
      return params
      }
+
+     /*
+     // film of person
+     person.films.forEach((film) => {
+         swapi.get(film).then((result) => {
+             filmTitle = result.title
+             //console.log(filmTitle)
+          });
+     })
+     // forEach person return their homeworld
+     swapi.get(person.homeworld).then((result) => {
+         homeWorld = result.name
+         //console.log(homeWorld)
+      });
+      */
 
 
 }
