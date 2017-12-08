@@ -2,7 +2,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path')
 
 module.exports = {
-  entry: './js/app.js',
+  entry: './js/swapi.js',
   target: 'node',
   output: {
     path: __dirname,
