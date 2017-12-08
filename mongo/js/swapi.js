@@ -3,7 +3,8 @@ let MongoClient = require('mongodb').MongoClient
 
 class Swapi {
     constructor(){
-        this.url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin'
+        //this.url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin'
+        this.url = 'mongodb://localhost:27017/swapi'
     }
 
     getData(callback) {
@@ -51,7 +52,7 @@ class Swapi {
     insertDocuments(docs) {
        MongoClient.connect(this.url, (err,db) => {
          if(!err) {
-           let collection = db.collection('mydb')
+           let collection = db.collection('characters')
            collection.insertMany(docs, (err,result) => {
             // console.log(result)
            })
@@ -64,14 +65,13 @@ class Swapi {
        })
      }
 
-     query(params) {
+     query(callback) {
         MongoClient.connect(this.url, (err, db) => {
           if (err) throw err
-          var query = { name: "Obi-Wan Kenobi" };
-           let collection = db.collection('mydb')
-            collection.find(query).toArray((err, result) => {
+           let collection = db.collection('characters')
+            collection.find({}).toArray((err, result) => {
             if (err) throw err
-            params(result)
+            callback(result)
             db.close();
           })
          // .fail(console.error)

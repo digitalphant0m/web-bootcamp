@@ -6,5 +6,6 @@ swapi.getData((arr) => {
   swapi.insertDocuments(arr)
   swapi.query((params) => {
       console.log('params',params)
+    
   })
 })
