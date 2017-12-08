@@ -1,7 +1,6 @@
-let Swapi = require('./swapi')
 import Dashboard from './containers/dashboard.js'
+import Swapi from './swapi.js'
 
-let swapi = new Swapi()
 
 export default class App {
 
@@ -22,6 +21,9 @@ export default class App {
 
   }
   getData() {
+
+      let swapi = new Swapi()
+      
       swapi.getData((arr) => {
       //  swapi.insertDocuments(arr)
         swapi.query((params) => {
