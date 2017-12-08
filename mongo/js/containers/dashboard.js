@@ -1,5 +1,4 @@
 import Card from '../components/card'
-let Swapi = require('../swapi')
 
 export default class Dashboard {
   constructor () {
@@ -7,9 +6,6 @@ export default class Dashboard {
   }
 
    getData() {
-       swapi.query((params) => {
-           console.log("PARAMS >>",params)
-       }
    }
 
 
