@@ -1,5 +1,5 @@
 let program = require('commander')
-let Swapi = require('../js/swapi')
+//let Swapi = require('../js/swapi')
 
 program
     .command('fetch')

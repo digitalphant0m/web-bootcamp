@@ -2,7 +2,6 @@ import Card from '../components/card'
 
 export default class Dashboard {
   constructor () {
-      this.getData()
   }
 
    getData() {

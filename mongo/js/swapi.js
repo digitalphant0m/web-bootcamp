@@ -1,5 +1,5 @@
-let api = require('star-wars-api')
 let MongoClient = require('mongodb').MongoClient
+let api = require('star-wars-api')
 
 class Swapi {
     constructor(){
@@ -21,7 +21,7 @@ class Swapi {
             .then(people =>  {
             people.results.forEach((person) => {
                 // film of person
-                console.log(person.films)
+            /*  console.log(person.films)
                 person.films.forEach((film) => {
                     swapi.get(film).then((result) => {
                         filmTitle = result.title
@@ -33,6 +33,8 @@ class Swapi {
                     homeWorld = result.name
                     //console.log(homeWorld)
                  });
+
+                 */
 
                 objPeople = {
                     name : person.name,
