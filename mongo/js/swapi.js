@@ -20,22 +20,6 @@ class Swapi {
         swapi.get('people', '')
             .then(people =>  {
             people.results.forEach((person) => {
-                // film of person
-            /*  console.log(person.films)
-                person.films.forEach((film) => {
-                    swapi.get(film).then((result) => {
-                        filmTitle = result.title
-                        console.log(filmTitle)
-                     });
-                })
-                // forEach person return their homeworld
-                swapi.get(person.homeworld).then((result) => {
-                    homeWorld = result.name
-                    //console.log(homeWorld)
-                 });
-
-                 */
-
                 objPeople = {
                     name : person.name,
                     birth_year:  person.birth_year,
