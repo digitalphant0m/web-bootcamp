@@ -4,7 +4,7 @@ export default class Card {
   }
 
   getContent() {
-    // Create Card
+
     let card = document.createElement('div')
     card.classList.add('col-6')
     card.style.height = '400px'
@@ -17,11 +17,9 @@ export default class Card {
     card.style.background  = 'rgba(0, 0, 0, 0.4)'
     card.style.borderRadius = '25px'
 
-    // Create Card Header
     let cardHeader = document.createElement('div')
     cardHeader.style.height = '10%'
 
-    // Create Card Title
     let cardTitle = document.createElement('div')
     cardTitle.append(this.options.name)
 
@@ -35,7 +33,6 @@ export default class Card {
 
     card.append(cardHeader)
 
-    // Create Card Body
     let cardBody = document.createElement('div')
     cardBody.style.height = '80%'
     cardBody.style.display = 'flex'
@@ -49,28 +46,42 @@ export default class Card {
     cardImageContainer.append(cardImage)
     cardBody.append(cardImageContainer)
 
-    // Create Card Description
-    let cardBirthYear = document.createElement('div')
-    cardBirthYear.innerHTML = 'Birth Year:';
+    let cardList = document.createElement('ul')
+
+    let cardDescription = document.createElement('li')
+    cardDescription.style.flex = '1'
+    cardDescription.style.padding = '10px'
+    cardDescription.append(this.options.description)
+
+    cardDescription.style.color = '#dddddd'
+    cardDescription.style.fontSize = '20px'
+    cardList.append(cardDescription)
+
+
+    let cardBirthYear = document.createElement('li')
+    cardBirthYear.innerHTML = 'Birth Year: ';
+    cardBirthYear.style.padding = '10px'
     cardBirthYear.style.flex = '1'
     cardBirthYear.append(this.options.birth_year)
 
     cardBirthYear.style.color = '#dddddd'
     cardBirthYear.style.fontSize = '20px'
-    cardBody.append(cardBirthYear)
+    cardList.append(cardBirthYear)
 
-    let cardHairColor = document.createElement('div')
-    cardHairColor.innerHTML = 'Hair Color:';
+    let cardHairColor = document.createElement('li')
+    cardHairColor.innerHTML = 'Hair Color: ';
+    cardHairColor.style.padding = '10px'
     cardHairColor.style.flex = '1'
     cardHairColor.append(this.options.hair_color)
 
     cardHairColor.style.color = '#dddddd'
     cardHairColor.style.fontSize = '20px'
-    cardBody.append(cardHairColor)
+    cardList.append(cardHairColor)
+
+    cardBody.append(cardList)
 
     card.append(cardBody)
 
-    // Create Card Footer
     let cardFooter = document.createElement('div')
     cardFooter.style.height = '10%'
     cardFooter.style.textAlign = 'center'

@@ -3,21 +3,25 @@ let app = express()
 let assert = require('assert')
 let MongoClient = require('mongodb').MongoClient
 
-let url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin'
 
 app.use('/', express.static('app'))
 
-app.post('/api/characters', (request, response) => {
+app.get('/api/characters', (request, response) => {
+
+let url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin'
 
   MongoClient.connect(url, (connectError, db) => {
     assert.equal(null, connectError)
+
+    //current db
+    console.log("Current",db.databaseName)
 
     // Get the documents collection
     var collection = db.collection('characters')
 
     let data = collection.find()
     data.toArray((error, result) => {
-      console.log(result)
+      console.log("RES>",result, error)
       response.json(result)
       db.close()
     })

@@ -38,8 +38,9 @@ export default class Dashboard {
     title.style.textAlign = 'left'
     title.style.fontWeight = 'bold'
     title.style.fontSize = '24px'
+    title.style.textAlign = 'center'
 
-    title.append('Jarvis Web Project')
+    title.append('Star Wars Characters')
 
     container.appendChild(title)
 
