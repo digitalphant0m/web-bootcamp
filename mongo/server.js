@@ -7,7 +7,7 @@ let url = 'mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mon
 
 app.use('/', express.static('app'))
 
-app.get('/api/characters', (request, response) => {
+app.post('/api/characters', (request, response) => {
 
   MongoClient.connect(url, (connectError, db) => {
     assert.equal(null, connectError)

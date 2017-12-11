@@ -17,13 +17,14 @@ export default class Dashboard {
        resolve(data)
      }
 
-     request.open("GET", 'http://mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin/api/characters')
+     request.open("GET", 'http://localhost:3000/api/characters')
 
      request.send()
    })
 
    return(promise)
  }
+
 
   getContent(data) {
     let container = document.createElement('div')
