@@ -12,6 +12,7 @@
   "author": "digitalphant0m",
   "license": "MIT",
   "dependencies": {
+    "commander": "^2.12.2",
     "express": "^4.15.3",
     "lodash": "^4.17.4",
     "moment": "^2.19.1",

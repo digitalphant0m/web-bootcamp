@@ -23,7 +23,7 @@ export default class Card {
 
     // Create Card Title
     let cardTitle = document.createElement('div')
-    cardTitle.append(this.options.title)
+    cardTitle.append(this.options.name)
 
     cardTitle.style.color = '#dddddd'
     cardTitle.style.margin = 'auto'
@@ -50,13 +50,23 @@ export default class Card {
     cardBody.append(cardImageContainer)
 
     // Create Card Description
-    let cardDescription = document.createElement('div')
-    cardDescription.style.flex = '1'
-    cardDescription.append(this.options.description)
+    let cardBirthYear = document.createElement('div')
+    cardBirthYear.innerHTML = 'Birth Year:';
+    cardBirthYear.style.flex = '1'
+    cardBirthYear.append(this.options.birth_year)
 
-    cardDescription.style.color = '#dddddd'
-    cardDescription.style.fontSize = '20px'
-    cardBody.append(cardDescription)
+    cardBirthYear.style.color = '#dddddd'
+    cardBirthYear.style.fontSize = '20px'
+    cardBody.append(cardBirthYear)
+
+    let cardHairColor = document.createElement('div')
+    cardHairColor.innerHTML = 'Hair Color:';
+    cardHairColor.style.flex = '1'
+    cardHairColor.append(this.options.hair_color)
+
+    cardHairColor.style.color = '#dddddd'
+    cardHairColor.style.fontSize = '20px'
+    cardBody.append(cardHairColor)
 
     card.append(cardBody)
 

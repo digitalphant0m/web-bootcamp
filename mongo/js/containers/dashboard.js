@@ -4,11 +4,28 @@ export default class Dashboard {
   constructor () {
   }
 
-   getData() {
-   }
+  getData() {
+   // This is where we'll grab data from our api (express)
+   let promise = new Promise((resolve, reject) => {
 
+     const request = new XMLHttpRequest()
 
-  getContent() {
+     request.onload = () => {
+       // Request finished. Do processing here.
+       let data = JSON.parse(request.responseText)
+       console.log(data)
+       resolve(data)
+     }
+
+     request.open("GET", 'http://mongodb://digitalphant0m:Gandalf27@lstacenuorti-shard-00-00-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-01-bq2i4.mongodb.net:27017,lstacenuorti-shard-00-02-bq2i4.mongodb.net:27017/test?ssl=true&replicaSet=LSTACENUORTI-shard-0&authSource=admin/api/characters')
+
+     request.send()
+   })
+
+   return(promise)
+ }
+
+  getContent(data) {
     let container = document.createElement('div')
     container.id = 'container'
 
@@ -25,14 +42,10 @@ export default class Dashboard {
 
     container.appendChild(title)
 
-    let lukeCard = new Card({
-      title: '',
-      image: '',
-      description: '',
-      link: '',
-      linkText: ''
+    data.forEach((item) => {
+      let characterCard = new Card(item)
+      container.append(characterCard.getContent())
     })
-    container.append(lukeCard.getContent())
 
     return container
   }
