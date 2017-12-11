@@ -6,6 +6,7 @@
 > cd Scarif
 > cd mongo
 > npm install
+> npm run build
 > npm start
 
 ```
