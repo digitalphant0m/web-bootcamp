@@ -2,8 +2,7 @@
 
 
 ```
-> git clone https://dev.bdu.bz:9080/darklord/Scarif.git
-> cd Scarif
+> git clone https://github.com/digitalphant0m/web-bootcamp.git
 > cd mongo
 > npm install
 > npm run build
